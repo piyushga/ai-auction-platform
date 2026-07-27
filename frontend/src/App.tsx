@@ -1,7 +1,7 @@
-import { Typography } from "@mui/material";
+import ChatPage from "./pages/ChatPage";
 
-function App() {
-  return <Typography variant="h4">AI Auction Intelligence Platform</Typography>;
-}
+const App = () => {
+  return <ChatPage />;
+};
 
 export default App;
