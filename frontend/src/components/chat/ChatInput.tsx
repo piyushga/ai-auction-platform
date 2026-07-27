@@ -1,24 +1,38 @@
+import SendRoundedIcon from "@mui/icons-material/SendRounded";
 import { Box, Button, TextField } from "@mui/material";
 
 const ChatInput = () => {
     return (
         <Box
             sx={{
-                display: "flex",
-                gap: 2,
-                p: 2,
-                borderTop: "1px solid #e0e0e0",
+                p: 3,
+                borderTop: 1,
+                borderColor: "divider",
             }}
         >
-            <TextField
-                fullWidth
-                placeholder="Ask about players, teams or auctions..."
-                variant="outlined"
-            />
+            <Box
+                sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 2,
+                }}
+            >
+                <TextField
+                    fullWidth
+                    placeholder="Ask anything about players, teams or auctions..."
+                />
 
-            <Button variant="contained">
-                Send
-            </Button>
+                <Button
+                    variant="contained"
+                    endIcon={<SendRoundedIcon />}
+                    sx={{
+                        minWidth: 120,
+                        height: 56,
+                    }}
+                >
+                    Send
+                </Button>
+            </Box>
         </Box>
     );
 };
