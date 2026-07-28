@@ -1,13 +1,14 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+from urllib.parse import quote_plus
 
 from app.core.config import settings
 
 
 DATABASE_URL = (
     f"postgresql+psycopg://"
-    f"{settings.POSTGRES_USER}:"
-    f"{settings.POSTGRES_PASSWORD}@"
+    f"{quote_plus(settings.POSTGRES_USER)}:"
+    f"{quote_plus(settings.POSTGRES_PASSWORD)}@"
     f"{settings.POSTGRES_HOST}:"
     f"{settings.POSTGRES_PORT}/"
     f"{settings.POSTGRES_DB}"

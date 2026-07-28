@@ -1,9 +1,8 @@
 from openai import OpenAI
-
-from app.core.config import OPENAI_API_KEY
+from app.core.config import settings
 from app.prompts.auction_prompt import SYSTEM_PROMPT
 
-client = OpenAI(api_key=OPENAI_API_KEY)
+client = OpenAI(api_key=settings.OPENAI_API_KEY)
 
 
 def stream_chat(message: str):
