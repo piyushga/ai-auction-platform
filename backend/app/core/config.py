@@ -1,12 +1,17 @@
-import os
+from pydantic_settings import BaseSettings, SettingsConfigDict
+class Settings(BaseSettings):
+    OPENAI_API_KEY: str
 
-from dotenv import load_dotenv
+    POSTGRES_HOST: str
+    POSTGRES_PORT: int
+    POSTGRES_DB: str
+    POSTGRES_USER: str
+    POSTGRES_PASSWORD: str
 
-load_dotenv()
+    model_config = SettingsConfigDict(
+        env_file=".env",
+        extra="ignore",
+    )
 
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-POSTGRES_HOST = os.getenv("POSTGRES_HOST")
-POSTGRES_PORT = os.getenv("POSTGRES_PORT")
-POSTGRES_DB = os.getenv("POSTGRES_DB")
-POSTGRES_USER = os.getenv("POSTGRES_USER")
-POSTGRES_PASSWORD = os.getenv("POSTGRES_PASSWORD")
+
+settings = Settings()
