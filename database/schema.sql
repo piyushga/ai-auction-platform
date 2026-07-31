@@ -83,3 +83,17 @@ CREATE TABLE special_stats (
         REFERENCES players(player_id)
         ON DELETE CASCADE
 );
+
+CREATE TABLE IF NOT EXISTS player_embeddings (
+    id SERIAL PRIMARY KEY,
+
+    player_id INT NOT NULL REFERENCES players(player_id) ON DELETE CASCADE,
+
+    player_name VARCHAR(100) NOT NULL,
+
+    description TEXT NOT NULL,
+
+    embedding vector(1536) NOT NULL,
+
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
