@@ -11,7 +11,7 @@ def main():
         repository = PlayerRepository(db)
 
         # Change the player name to test different players
-        player = repository.get_player_details("Virat Kohli")
+        player = repository.get_player_details("Hardik Pandya")
 
         if player is None:
             print("Player not found!")
