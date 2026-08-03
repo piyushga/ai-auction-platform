@@ -1,6 +1,6 @@
 from openai import OpenAI
 from app.core.config import settings
-from app.prompts.auction_prompt import SYSTEM_PROMPT
+from app.prompts.auction_prompt import RAG_SYSTEM_PROMPT
 
 client = OpenAI(api_key=settings.OPENAI_API_KEY)
 
@@ -8,7 +8,7 @@ client = OpenAI(api_key=settings.OPENAI_API_KEY)
 def stream_chat(message: str):
     openai_response_stream = client.responses.create(
         model="gpt-4.1-mini",
-        instructions=SYSTEM_PROMPT,
+        instructions=RAG_SYSTEM_PROMPT,
         input=message,
         stream=True,
     )
